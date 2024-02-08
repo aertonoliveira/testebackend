@@ -18,5 +18,18 @@ async function CadastrarMensagem(device_id) {
   }
 }
 
+async function buscarTodos(){
+  try {  
+    
+    const cartaoToken = await Notificacao.find({});
+    return { error: false, data: cartaoToken }
+  
 
-module.exports = { CadastrarMensagem }
+  // return { error: false, data: 'Usuario não encontrado' }
+} catch (e) {
+  console.log(e)
+  throw { error: true, data: e }
+}
+}
+
+module.exports = { CadastrarMensagem,buscarTodos }
